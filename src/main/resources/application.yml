@@ -1,0 +1,19 @@
+# model data base
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/jack"
+    driver-class-name: org.postgresql.Driver
+    username: jack
+    password: secret
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+    generate-ddl: true
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
