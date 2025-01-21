@@ -19,6 +19,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Set POM version
+        run: mvn versions:set -DnewVersion=${{ github.ref_name }}
+
       - name: Build with Maven
         run: mvn clean package
 

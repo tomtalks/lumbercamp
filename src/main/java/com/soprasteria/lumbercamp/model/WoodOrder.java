@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -24,6 +27,9 @@ public class WoodOrder {
 
   private Integer honored;
 
+  @CreationTimestamp
+  @Column
+  private Timestamp timestamp;
 
   public WoodOrder(String customer, String type, Integer quantity, Integer honored) {
     this.customer = customer;

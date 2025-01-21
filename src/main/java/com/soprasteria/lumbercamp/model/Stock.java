@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -19,6 +22,10 @@ public class Stock {
   private String type;
 
   private Integer quantity;
+
+  @CreationTimestamp
+  @Column
+  private Timestamp timestamp;
 
   public Stock(String type, Integer quantity) {
     this.type = type;
