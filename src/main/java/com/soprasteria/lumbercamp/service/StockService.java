@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import static com.soprasteria.lumbercamp.LumberCampApplication.NEW_STOCK;
+
 /**
  * Primary must be set to be the default one when conditional is true
  * Conditional is used to enable this bean when corresponding propertie is set
@@ -39,7 +41,7 @@ public class StockService {
 
   private void refill(WoodTypes type){
     Random r = new Random();
-    Integer current =  r.nextInt(50);
+    Integer current =  r.nextInt(NEW_STOCK);
     stockRepository.save(new Stock(type.getName(), current));
     log.info("Jack came back from the forest with {} of {}",current,type.getName());
   }

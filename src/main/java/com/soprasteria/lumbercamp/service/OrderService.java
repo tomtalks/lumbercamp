@@ -51,7 +51,13 @@ public class OrderService {
     log.info("Delivery to {} registred for {}/{} of {} ",customer,honored,quantity,type);
     log.info("Delivery pending on current status");
 
-
+    if(honored < quantity){
+      log.warn("Delivery pending for {} of {} ",quantity-honored,type);
+      if(type.equals("oak")){
+        stockRepository.save(new Stock(type, honored));
+        throw new OakException(honored,quantity);
+      }
+    }
 
 
     return currentOrder.build();
