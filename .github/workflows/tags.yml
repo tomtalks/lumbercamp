@@ -25,9 +25,6 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
 
-      - name: Build Docker image
-        run: docker build -t tjouve/lumbercamp:${{ github.ref_name }} .
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
